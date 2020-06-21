@@ -12,6 +12,6 @@
 
     <Grid>
         <Button Content="Button" Margin="406,275,0,0" VerticalAlignment="Top" Width="143" Click="Button_Click"/>
-        <TextBox x:Name="PrinterStatus" HorizontalAlignment="Left" Margin="397,368,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
+        <TextBox x:Name="PrinterStatus" HorizontalAlignment="Left" Margin="397,368,0,0" Text="{Binding ErrorMsg}" TextWrapping="Wrap" VerticalAlignment="Top" Width="161"/>
     </Grid>
 </Page>

@@ -30,11 +30,13 @@ namespace SampleUwpApp
         {
             this.InitializeComponent();
             _viewModel = new MainPageViewModel();
+
+            this.DataContext = _viewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.PrinterStatus.Text = _viewModel.ButtonClick();
+            _viewModel.ButtonClick();
         }
     }
 }
