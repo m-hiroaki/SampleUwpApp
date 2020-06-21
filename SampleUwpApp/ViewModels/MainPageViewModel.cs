@@ -9,17 +9,18 @@ namespace SampleUwpApp.ViewModels
 {
     public class MainPageViewModel
     {
+        private int _count = 0;
 
         public MainPageViewModel()
         {
 
         }
 
-        public string ButtonClick(int count)
+        public string ButtonClick()
         {
             PrinterStatus printerStatus = new PrinterStatus();
 
-            return printerStatus.GetErrorMsg(count);
+            return printerStatus.GetErrorMsg(_count++);
         }
     }
 }

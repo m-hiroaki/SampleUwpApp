@@ -24,7 +24,6 @@ namespace SampleUwpApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
-        private int _count = 0;
         private MainPageViewModel _viewModel;
 
         public MainPage()
@@ -35,10 +34,7 @@ namespace SampleUwpApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-            this.PrinterStatus.Text = _viewModel.ButtonClick(_count);
-
-            _count++;
+            this.PrinterStatus.Text = _viewModel.ButtonClick();
         }
     }
 }
