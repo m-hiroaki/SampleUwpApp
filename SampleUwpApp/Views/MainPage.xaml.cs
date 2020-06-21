@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SampleUwpApp.Models;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -31,14 +32,9 @@ namespace SampleUwpApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if ((_count % 2) == 0)
-            {
-                this.PrinterStatus.Text = "No Error";
-            }
-            else
-            {
-                this.PrinterStatus.Text = "DoorOpen";
-            }
+            PrinterStatus printerStatus = new PrinterStatus();
+
+            this.PrinterStatus.Text = printerStatus.GetErrorMsg(_count);
 
             _count++;
         }
