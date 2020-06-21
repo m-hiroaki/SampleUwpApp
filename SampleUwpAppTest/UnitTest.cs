@@ -1,6 +1,7 @@
 ﻿
 using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using SampleUwpApp.Models;
 using SampleUwpApp.ViewModels;
 
 namespace SampleUwpAppTest
@@ -11,14 +12,24 @@ namespace SampleUwpAppTest
         [TestMethod]
         public void ボタンクリックイベントのテスト()
         {
-            var printerStatus = new MainPageViewModel();
+            var printerStatus = new MainPageViewModel(new MockPrinterStatus());
 
             // 初回のボタンクリックで"No Error"が表示される
-            Assert.AreEqual(printerStatus.ButtonClick(), "No Error");
+            printerStatus.ButtonClick();
+            Assert.AreEqual(printerStatus.ErrorMsg, "Error Info = No Error");
 
 
             // 2回目のボタンクリックで"DoorOpen"が表示される
-            Assert.AreEqual(printerStatus.ButtonClick(), "DoorOpen");
+            printerStatus.ButtonClick();
+            Assert.AreEqual(printerStatus.ErrorMsg, "Error Info = DoorOpen");
+        }
+    }
+
+    public class MockPrinterStatus : IPrinterStatus
+    {
+        public string GetErrorMsg(int count)
+        {
+            return "No Error";
         }
     }
 }

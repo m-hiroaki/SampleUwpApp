@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SampleUwpApp.Models
 {
-    public class PrinterStatus
+    public class PrinterStatus : IPrinterStatus
     {
         public PrinterStatus()
         {
@@ -16,7 +16,7 @@ namespace SampleUwpApp.Models
         public string GetErrorMsg(int count)
         {
             string str;
-            if ((count % 2)==0)
+            if ((count % 2) == 0)
             {
                 str = "No Error";
             }

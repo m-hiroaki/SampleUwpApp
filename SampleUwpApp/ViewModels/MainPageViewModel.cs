@@ -16,6 +16,8 @@ namespace SampleUwpApp.ViewModels
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        private IPrinterStatus _printerStatus;
+
         public string ErrorMsg
         { 
             get => _errorMsg;
@@ -27,17 +29,15 @@ namespace SampleUwpApp.ViewModels
         }
 
 
-        public MainPageViewModel()
+        public MainPageViewModel(IPrinterStatus printerStatus)
         {
-
+            _printerStatus = printerStatus;
         }
 
 
         public void ButtonClick()
         {
-            PrinterStatus printerStatus = new PrinterStatus();
-
-            ErrorMsg = printerStatus.GetErrorMsg(_count++);
+            ErrorMsg = "Error Info = " + _printerStatus.GetErrorMsg(_count++);
         }
 
         public void OnPropertyChanged(string propertyName)

@@ -29,7 +29,8 @@ namespace SampleUwpApp
         public MainPage()
         {
             this.InitializeComponent();
-            _viewModel = new MainPageViewModel();
+            var printerStatus = new PrinterStatus();
+            _viewModel = new MainPageViewModel(printerStatus);
 
             this.DataContext = _viewModel;
         }
