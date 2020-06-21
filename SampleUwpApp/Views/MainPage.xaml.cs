@@ -1,4 +1,5 @@
 ﻿using SampleUwpApp.Models;
+using SampleUwpApp.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -24,17 +25,18 @@ namespace SampleUwpApp
     public sealed partial class MainPage : Page
     {
         private int _count = 0;
+        private MainPageViewModel _viewModel;
 
         public MainPage()
         {
             this.InitializeComponent();
+            _viewModel = new MainPageViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            PrinterStatus printerStatus = new PrinterStatus();
 
-            this.PrinterStatus.Text = printerStatus.GetErrorMsg(_count);
+            this.PrinterStatus.Text = _viewModel.ButtonClick(_count);
 
             _count++;
         }
