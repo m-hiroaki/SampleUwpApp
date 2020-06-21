@@ -14,6 +14,7 @@ using Windows.UI.Xaml.Data;
 using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.Extensions.DependencyInjection;
 
 // 空白ページの項目テンプレートについては、https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x411 を参照してください
 
@@ -29,9 +30,7 @@ namespace SampleUwpApp
         public MainPage()
         {
             this.InitializeComponent();
-            var printerStatus = new PrinterStatus();
-            _viewModel = new MainPageViewModel(printerStatus);
-
+            _viewModel = App.Container.GetService<MainPageViewModel>();
             this.DataContext = _viewModel;
         }
 

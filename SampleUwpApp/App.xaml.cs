@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using SampleUwpApp.Models;
+using SampleUwpApp.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -22,6 +25,11 @@ namespace SampleUwpApp
     /// </summary>
     sealed partial class App : Application
     {
+
+        private static IServiceProvider _container;
+
+        public static IServiceProvider Container { get => _container; private set => _container = value; }
+
         /// <summary>
         ///単一アプリケーション オブジェクトを初期化します。これは、実行される作成したコードの
         ///最初の行であるため、論理的には main() または WinMain() と等価です。
@@ -30,7 +38,13 @@ namespace SampleUwpApp
         {
             this.InitializeComponent();
             this.Suspending += OnSuspending;
+
+            var services = new ServiceCollection();
+            services.AddTransient<IPrinterStatus, PrinterStatus>();
+            services.AddTransient<MainPageViewModel>();
+            _container = services.BuildServiceProvider();
         }
+
 
         /// <summary>
         /// アプリケーションがエンド ユーザーによって正常に起動されたときに呼び出されます。他のエントリ ポイントは、
