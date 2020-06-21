@@ -22,6 +22,8 @@ namespace SampleUwpApp
     /// </summary>
     public sealed partial class MainPage : Page
     {
+        private int _count = 0;
+
         public MainPage()
         {
             this.InitializeComponent();
@@ -29,7 +31,16 @@ namespace SampleUwpApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.PrinterStatus.Text = "No Error";
+            if ((_count % 2) == 0)
+            {
+                this.PrinterStatus.Text = "No Error";
+            }
+            else
+            {
+                this.PrinterStatus.Text = "DoorOpen";
+            }
+
+            _count++;
         }
     }
 }
