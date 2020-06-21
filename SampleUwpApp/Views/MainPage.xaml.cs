@@ -29,7 +29,7 @@ namespace SampleUwpApp
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
+            this.PrinterStatus.Text = "No Error";
         }
     }
 }
