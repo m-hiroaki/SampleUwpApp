@@ -25,7 +25,7 @@ namespace SampleUwpApp.Models.Interfaces
                 list.Add
                     (
                         new DeviceObject(devInfo.Id, devInfo.IsDefault, devInfo.IsEnabled, devInfo.Name, devInfo.Properties, devInfo.Kind)
-                    ); ;
+                    );
             }
 
             return list;
