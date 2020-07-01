@@ -119,6 +119,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Models\Interfaces\IDeviceObject.cs" />
+    <Compile Include="Models\Interfaces\IDeviceObjectFactory.cs" />
+    <Compile Include="Models\Interfaces\IPnpDevice.cs" />
+    <Compile Include="Models\Interfaces\IPnpDeviceFactory.cs" />
     <Compile Include="Models\IPrinterStatus.cs" />
     <Compile Include="Models\PrinterStatus.cs" />
     <Compile Include="ViewModels\MainPageViewModel.cs" />
